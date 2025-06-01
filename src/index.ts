@@ -7,6 +7,9 @@ import { logger } from "./utils/internal/logger.js";
 // Import the service instance instead of the standalone function
 import { requestContextService } from "./utils/internal/requestContext.js";
 
+// Initialize logger immediately at module level
+await logger.initialize(config.logLevel as any);
+
 // Define a type alias for the server instance for better readability
 // initializeAndStartServer returns Promise<void | McpServer>, we'll handle the potential void/undefined later if needed
 // For now, assuming it returns McpServer as per current stdio-only logic

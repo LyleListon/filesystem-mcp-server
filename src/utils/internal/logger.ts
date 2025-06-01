@@ -416,9 +416,7 @@ export class Logger {
    */
   private ensureInitialized(): boolean {
     if (!this.initialized || !this.winstonLogger) {
-      if (process.stdout.isTTY) {
-        console.warn("Logger not initialized; message dropped.");
-      }
+      // Silently drop messages before initialization to avoid spam
       return false;
     }
     return true;
